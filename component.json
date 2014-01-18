@@ -1,0 +1,19 @@
+{
+  "name": "stop-typing",
+  "repo": "yuehu/stop-typing",
+  "description": "Execute when stop typing.",
+  "version": "0.0.1",
+  "keywords": [
+    "event",
+    "keyboard"
+  ],
+  "dependencies": {
+    "component/event": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
