@@ -1,6 +1,6 @@
 {
-  "name": "stop-typing",
-  "repo": "yuehu/stop-typing",
+  "name": "on-stop",
+  "repo": "yuehu/on-stop",
   "description": "Execute when stop typing.",
   "version": "0.0.1",
   "keywords": [
