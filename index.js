@@ -1,19 +1,28 @@
 /**
- * Execute the given function when user stops typing.
+ * Execute the given function when user stops.
  */
 
 var events = require('event');
 
-module.exports = function(el, func, time) {
+module.exports = function(el, func, options) {
+  options = options || {};
+
   // micro seconds
-  time = time || 400;
+  var duration = options.duration || 400;
 
   var timer;
-  events.bind(el, 'keyup', function() {
-    timer = setTimeout(func, time);
+
+  var ev = options.event || 'keyup';
+  var altEv = options.clearEvent;
+  if (!altEv && ev === 'keyup') {
+    altEv = 'keydown';
+  }
+
+  events.bind(el, ev, function() {
+    timer = setTimeout(func, duration);
   });
 
-  events.bind(el, 'keydown', function() {
+  events.bind(el, altEv || ev, function() {
     clearTimeout(timer);
   });
 };

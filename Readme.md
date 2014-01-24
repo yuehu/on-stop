@@ -1,7 +1,7 @@
 
 # on-stop
 
-  Execute when stop typing.
+  Execute when user stops.
 
 ## Installation
 
@@ -14,14 +14,19 @@
 ```js
 var stop = require('on-stop');
 
+// stop(el, func, options)
+
 stop(el, function() {
     console.log('stop');
 })
 ```
 
-### stop(el, func, delay)
+### Options
 
-Default delay time is 400ms.
+1. **duration**: delay duration for an event, default is 400ms
+2. **event**: stop on the given event, default is `keyup`
+3. **clearEvent**: event for clearTimeout, usually you don't need set this value
+
 
 ## License
 

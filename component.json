@@ -1,10 +1,11 @@
 {
   "name": "on-stop",
   "repo": "yuehu/on-stop",
-  "description": "Execute when stop typing.",
-  "version": "0.0.1",
+  "description": "Execute when user stops.",
+  "version": "0.1.0",
   "keywords": [
     "event",
+    "stop",
     "keyboard"
   ],
   "dependencies": {
