@@ -10,7 +10,7 @@ module.exports = function(el, func, options) {
   // micro seconds
   var duration = options.duration || 400;
 
-  var timer;
+  var timer = [];
 
   var ev = options.event || 'keyup';
   var altEv = options.clearEvent;
@@ -19,10 +19,12 @@ module.exports = function(el, func, options) {
   }
 
   events.bind(el, ev, function() {
-    timer = setTimeout(func, duration);
+    timer.push(setTimeout(func, duration));
   });
 
   events.bind(el, altEv || ev, function() {
-    clearTimeout(timer);
+    while (timer.length) {
+      clearTimeout(timer.pop());
+    }
   });
 };
