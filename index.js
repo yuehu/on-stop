@@ -12,6 +12,13 @@ module.exports = function(el, func, options) {
 
   var timer = [];
 
+  var clear = function() {
+    while (timer.length) {
+      clearTimeout(timer.pop());
+    }
+  };
+
+
   var ev = options.event || 'keyup';
   var altEv = options.clearEvent;
   if (!altEv && ev === 'keyup') {
@@ -19,12 +26,13 @@ module.exports = function(el, func, options) {
   }
 
   events.bind(el, ev, function() {
+    if (!altEv) {
+      clear();
+    }
     timer.push(setTimeout(func, duration));
   });
 
-  events.bind(el, altEv || ev, function() {
-    while (timer.length) {
-      clearTimeout(timer.pop());
-    }
-  });
+  if (altEv) {
+    events.bind(altEv, clear);
+  }
 };
